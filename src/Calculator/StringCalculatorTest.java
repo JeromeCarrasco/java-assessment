@@ -4,7 +4,6 @@ package Calculator;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,13 +13,21 @@ class StringCalculatorTest {
     @DisplayName("Check if test is running on add function")
     void add(){
         StringCalculator calculatorObj = new StringCalculator();
-         assertEquals(1,calculatorObj.add("1,2"));
+         assertEquals(1,calculatorObj.add("1"));
     }
 
     @Test
     @DisplayName("Check Empty value")
-    void return_zero_on_empty_string(){
+    public void return_zero_on_empty_string(){
         StringCalculator calculatorObj = new StringCalculator();
         assertEquals(0,calculatorObj.add(""));
+    }
+
+    @Test
+    @DisplayName("Return single value")
+    public void return_single_value_for_single_value(){
+        StringCalculator calculatorObj = new StringCalculator();
+        assertEquals(5,calculatorObj.add("5"));
+        assertEquals(47,calculatorObj.add("47"));
     }
 }

@@ -7,7 +7,7 @@ public class StringCalculator {
         if(numbers.isEmpty()){
             return 0;
         }else {
-            return 1;
+            return Integer.parseInt(numbers);
         }
 
     }
@@ -20,10 +20,10 @@ public class StringCalculator {
         System.out.println("Entered Main !!!");
         System.out.println("This is a Calculator with string Input");
 
-        StringCalculator calTestObj = new StringCalculator();
+        //StringCalculator calTestObj = new StringCalculator();
 
-        result = calTestObj.add("1,3");
+        //result = calTestObj.add("1");
 
-        System.out.println("final result is "+result);
+        //System.out.println("final result is "+result);
     }
 }

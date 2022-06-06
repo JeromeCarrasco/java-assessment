@@ -1,6 +1,8 @@
 package Calculator;
 
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class StringCalculator {
 
@@ -15,6 +17,15 @@ public class StringCalculator {
     }
 
     private static String[] getInputString(String numbers) {
+
+        if(numbers.startsWith("//")){
+            Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(numbers);
+            if(matcher.matches()){
+                String delimiter = matcher.group(1);
+                String strToSplit = matcher.group(2);
+                return strToSplit.split(delimiter);
+            }
+        }
         return numbers.split("[,|\n]");
     }
 

@@ -55,4 +55,11 @@ class StringCalculatorTest {
         assertEquals(26,calculatorObj.add("4,7\n7,8"));
     }
 
+    @Test
+    @DisplayName("Adding a custom delimiter along with newlines into the input ")
+    public void return_sum_of_input_having_custom_delimiter_newline(){
+        StringCalculator calculatorObj = new StringCalculator();
+        assertEquals(5,calculatorObj.add("//;\n1;4"));
+        assertEquals(91,calculatorObj.add("//;\n7;84"));
+    }
 }

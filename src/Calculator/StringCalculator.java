@@ -1,12 +1,20 @@
 package Calculator;
 
+import java.util.Arrays;
+
 public class StringCalculator {
 
     public int add(String numbers){
 
-        if(numbers.isEmpty()){
+        if(numbers.isEmpty())
             return 0;
-        }else {
+        else if (numbers.contains(",")) {
+            String[] numArr = numbers.split(",");
+
+            int[] numArray = Arrays.stream(numArr).mapToInt(Integer::parseInt).toArray();
+
+            return Arrays.stream(numArray).sum();
+        } else {
             return Integer.parseInt(numbers);
         }
 

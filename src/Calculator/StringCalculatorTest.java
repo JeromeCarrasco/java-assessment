@@ -46,4 +46,13 @@ class StringCalculatorTest {
         //assertEquals(47,calculatorObj.add("47,6,2,834,123,"));
         //assertEquals(47,calculatorObj.add("47,6,"));
     }
+
+    @Test
+    @DisplayName("Adding a newline to the input ")
+    public void return_sum_of_input_newlines(){
+        StringCalculator calculatorObj = new StringCalculator();
+        assertEquals(5,calculatorObj.add("5"));
+        assertEquals(26,calculatorObj.add("4,7\n7,8"));
+    }
+
 }

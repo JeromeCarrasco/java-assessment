@@ -9,7 +9,7 @@ public class StringCalculator {
         if(numbers.isEmpty())
             return 0;
         else if (numbers.contains(",")) {
-            String[] numArr = numbers.split(",");
+            String[] numArr = numbers.split(",|\n");
 
             int[] numArray = Arrays.stream(numArr).mapToInt(Integer::parseInt).toArray();
 

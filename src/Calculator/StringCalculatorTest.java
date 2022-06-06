@@ -62,4 +62,12 @@ class StringCalculatorTest {
         assertEquals(5,calculatorObj.add("//;\n1;4"));
         assertEquals(91,calculatorObj.add("//;\n7;84"));
     }
+
+    @Test
+    @DisplayName("Throwing an exception for negative number")
+    public void return_throw_negative_exception(){
+        StringCalculator calculatorObj = new StringCalculator();
+        RuntimeException exception = assertThrows(RuntimeException.class,()->{calculatorObj.add("2,-4,5,-7,4,2,-7");});
+        assertEquals("negatives not allowed[-4, -7, -7]", exception.getMessage());
+    }
 }

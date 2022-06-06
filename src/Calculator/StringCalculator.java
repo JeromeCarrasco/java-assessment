@@ -1,6 +1,8 @@
 package Calculator;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,7 +13,9 @@ public class StringCalculator {
         if(numbers.isEmpty())
             return 0;
         else {
-            return Arrays.stream(getConvertedArr(getInputString(numbers))).sum();
+            int[] numArr = getConvertedArr(getInputString(numbers));
+            isNegativeNumber(numArr);
+            return Arrays.stream(numArr).sum();
         }
 
     }
@@ -31,6 +35,20 @@ public class StringCalculator {
 
     private static int[] getConvertedArr(String[] numArr) {
         return Arrays.stream(numArr).mapToInt(Integer::parseInt).toArray();
+    }
+
+    private static void isNegativeNumber(int[] numArr){
+        List<Integer> negative = new ArrayList<>();
+        for (int n : numArr) {
+            // Simple check for +ve/-ve
+            if (n < 0) {
+                negative.add(n);
+            }
+        }
+        if ( !negative.isEmpty()) {
+            throw new RuntimeException("negatives not allowed" + negative);
+        }
+
     }
 
     public static void main(String[] args) {
